@@ -1,30 +1,25 @@
 pipeline {
-agent { label 'java-node' }
+	agent none
 	stages {
-		stage ('test') {
+	stage ( 'c-project and java' ) {
+		parallel {
+		stage ('make') {
+			agent { label 'c-node' }
 			steps {
-				echo 'this is doing test build'
-				sh '''
-        pwd
-					if [[ -d './webapp' ]]; then 
-						cd './webapp' && git pull 
-					else 
-						git clone https://github.com/neelappagowda/Test.git && cd ./webapp
-					fi
-					mvn clean install
-        '''
+			  	git 'https://github.com/neelappagowda/webapp.git'
+					sh 'make'
+				echo 'This is slaveforc node with STAGE 1'
+						sh 'sleep 10'
 			}
 		}
-		stage ('maven package') {
+		stage ('Java Project') {
+			agent { label 'java-node' }
 			steps {
-		sh '''  pwd
-					if [[ -d './webapp' ]]; then 
-						cd './webapp' && git pull 
-					else 
-						git clone https://github.com/neelappagowda/webapp.git && cd ./webapp
-					fi
-					mvn clean install '''
-        }
-        }
-        }
-}
+				git 'https://github.com/neelappagowda/Test.git'
+				sh 'mvn clean install'
+			}
+		}
+		}
+	}
+		
+	}
