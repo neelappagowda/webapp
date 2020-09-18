@@ -9,7 +9,7 @@ agent { label 'java-node' }
 					if [[ -d './webapp' ]]; then 
 						cd './webapp' && git pull 
 					else 
-						git colne https://github.com/neelappagowda/Test.git && cd ./webapp
+						git clone https://github.com/neelappagowda/Test.git && cd ./webapp
 					fi
 					mvn clean install
         '''
@@ -21,7 +21,7 @@ agent { label 'java-node' }
 					if [[ -d './webapp' ]]; then 
 						cd './webapp' && git pull 
 					else 
-						git colne https://github.com/neelappagowda/webapp.git && cd ./webapp
+						git clone https://github.com/neelappagowda/webapp.git && cd ./webapp
 					fi
 					mvn clean install '''
         }
