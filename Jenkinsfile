@@ -6,7 +6,7 @@ pipeline {
 		stage ('make') {
 			agent { label 'c-node' }
 			steps {
-			  	git 'https://github.com/neelappagowda/webapp.git'
+			  	git 'https://github.com/neelappagowda/c-project_1.git'
 					sh 'make'
 				echo 'This is slaveforc node with STAGE 1'
 						sh 'sleep 10'
