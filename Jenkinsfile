@@ -120,6 +120,18 @@ pipeline {
 				'''
 			}
 		}
+			stage('Test') {
+        steps {
+           dir ('/var/lib/jenkins/workspace/c-project-pipeline@tmp') { 
+
+            }
+        }     
+}
+}
+post {
+    always {
+        sh 'script.sh'
+    }
 		}
 	}
 		
