@@ -14,7 +14,11 @@ pipeline {
 		}
 		stage ('Java Project') {
 			agent { label 'java-node' }
+			 tools {
+        maven 'apache-maven-3.6.3' 
+    }
 			steps {
+				 sh 'mvn --version'
 				git 'https://github.com/neelappagowda/Test.git'
 				sh 'mvn clean install'
 			}
