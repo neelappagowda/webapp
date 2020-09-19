@@ -122,7 +122,7 @@ pipeline {
 		}
 			stage('Test') {
         steps {
-           dir ('/var/lib/jenkins/workspace/c-project-pipeline@tmp') { 
+           dir ('/var/lib/jenkins/workspace/java-pipeline@tmp') { 
 
             }
         }     
