@@ -116,24 +116,22 @@ pipeline {
 	at java.lang.Thread.run(Thread.java:748)
 				 mvn --version
 				git 'https://github.com/neelappagowda/Test.git'
-				mvn clean install
-				'''
-			}
-		}
-			stage('Test') {
-        steps {
-           dir ('/var/lib/jenkins/workspace/java-pipeline@tmp') { 
+				dir ('/var/lib/jenkins/workspace/java-pipeline@tmp') { 
 
             }
-        }     
-}
-}
-post {
+				
+				mvn clean install
+				'''
+				post {
     always {
         sh 'script.sh'
     }
 		}
+			}
+		}
+			
+        
 	}
 		
 	}
-}
+
