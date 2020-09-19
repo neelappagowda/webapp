@@ -15,7 +15,7 @@ pipeline {
 		stage ('Java Project') {
 			agent { label 'java-node' }
 			 tools {
-        maven 'apache-maven-3.6.3' 
+        maven 'Apache Maven 3.0.5' 
     }
 			steps {
 				 sh 'mvn --version'
